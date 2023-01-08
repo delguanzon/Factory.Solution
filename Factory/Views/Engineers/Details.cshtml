@@ -5,7 +5,7 @@
 @using Factory.Models;
 @model Factory.Models.Engineer;
 
-<h1>Engineer Name: @Html.DisplayNameFor(model => model.Name)</h1>
+<h1>Engineer Name: @Html.DisplayFor(model => model.Name)</h1>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -13,14 +13,13 @@
 } 
 @foreach (EngineerMachine join in Model.JoinEntities)
 {
-  <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new {  id = join.Machine.MachineId })</li>
+  <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new {  id = join.Machine.MachineId }) 
+  @using (Html.BeginForm("DeleteJoin", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete"/>
+      }
+  </li>
 }
-
-<ul>
-@foreach (SelectListItem item in (List<SelectListItem>)ViewBag.MachineId)
-{
- <li> @Html.Display(item.Text) |  @Html.CheckBox(item.Value, false);</li>
-}
-</ul>
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
+<p>@Html.ActionLink("Assign new Machine", "AssignMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>

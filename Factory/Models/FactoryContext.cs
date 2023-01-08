@@ -23,6 +23,6 @@ namespace Factory.Models
         //Database tables go here
         public DbSet<Factory.Models.Engineer> Engineers { get; set; }
         public DbSet<Factory.Models.Machine> Machines { get; set; }
-        public DbSet<Factory.Models.EngineerMachine> Assignments { get; set; }
+        public DbSet<Factory.Models.EngineerMachine> EngineerMachines { get; set; }
     }
 }
