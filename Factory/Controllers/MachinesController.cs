@@ -37,12 +37,12 @@ namespace Factory.Controllers
         {   
             _db.Add(machine);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id) 
         {
-            Engineer thisMachine = _db.Machine
+            Machine thisMachine = _db.Machines
                 .Include(machine => machine.JoinEntities)
                 .ThenInclude(join => join.Engineer)
                 .FirstOrDefault(machine => machine.MachineId == id);
@@ -51,8 +51,8 @@ namespace Factory.Controllers
 
         public ActionResult Edit(int id)
         {
-            Engineer thisMachine = _db.Machines
-                                .Include(mchine => machine.JoinEntities)
+            Machine thisMachine = _db.Machines
+                                .Include(machine => machine.JoinEntities)
                                 .ThenInclude(join => join.Engineer)
                                 .FirstOrDefault(machine => machine.MachineId == id);
             return View(thisMachine);
@@ -61,7 +61,7 @@ namespace Factory.Controllers
         [HttpPost]
         public ActionResult Edit(Machine machine)
             {
-            _db.Engineers.Update(machine);
+            _db.Machines.Update(machine);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -89,7 +89,7 @@ namespace Factory.Controllers
         }
 
         [HttpPost]
-        public ActionResult AssignMachine(Machine Machine, int engineerId)
+        public ActionResult AssignEngineer(Machine Machine, int engineerId)
         {
             #nullable enable
             EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId == Machine.MachineId));

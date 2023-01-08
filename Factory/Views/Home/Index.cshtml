@@ -6,4 +6,30 @@
 
 
 <h1>Welcome to the To Do List!</h1>
-<h3>@Html.ActionLink("See all Engineers", "Index", "Engineers")</h3>
+
+<div class="d-flex">
+  <div class="w-50">
+    <h2>Engineers</h2>
+    <ul>
+      @foreach (Engineer engineer in Model.Engineers)
+      {
+        <li>
+          @Html.ActionLink(engineer.Name, "Details", "Engineers", new { id = engineer.EngineerId }, null)
+        </li>
+      }
+    </ul>
+    @Html.ActionLink("See all Engineers", "Index", "Engineers")
+  </div>
+  <div class="w-50">
+    <h2>Machines</h2>
+    <ul>
+      @foreach (Machine machine in Model.Machines)
+      {
+        <li>
+          @Html.ActionLink(machine.Name, "Details", "Machines", new { id = machine.MachineId }, null)
+        </li>
+      }
+    </ul>
+    @Html.ActionLink("See all Machines", "Index", "Machines")
+  </div>
+</div>

@@ -37,7 +37,7 @@ namespace Factory.Controllers
         {   
             _db.Add(engineer);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id) 
