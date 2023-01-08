@@ -1,8 +1,8 @@
-#  Eau Claire's Salon
+#  Dr. Sillystringz's Factory
 
 #### By Yodel Guanzon <yodelguanzon@gmail.com>
 
-#### This is an independent project to test our skills in Web Application with a Database using ASP .Net Core MVC.
+#### This is an independent project to test our skills in Many-to-Many Relational Database using ASP .Net Core MVC with EF Core Migrations.
 
 ## Technologies Used
 
@@ -17,7 +17,8 @@
 
 ## Description
 
-Dr. Sillystringz's Factory
+### Dr. Sillystringz's Factory
+
 You've been contracted by the factory of the famous Dr. Sillystringz to build an application to keep track of their machine repairs. You are to build an MVC web application to manage their engineers, and the machines they are licensed to fix. The factory manager should be able to add a list of engineers, a list of machines, and specify which engineers are licensed to repair which machines. There should be a many-to-many relationship between Engineers and Machines. An engineer can be licensed to repair (belong to) many machines (such as the Dreamweaver, the Bubblewrappinator, and the Laughbox) and a machine can have many engineers licensed to repair it.
 
 #### User Stories
