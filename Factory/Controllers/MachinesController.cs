@@ -70,13 +70,13 @@ namespace Factory.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(machine);
             }
             else 
             {
                 _db.Machines.Update(machine);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = machine.MachineId });
             }
         }
 

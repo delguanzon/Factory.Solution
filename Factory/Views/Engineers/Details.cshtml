@@ -6,6 +6,7 @@
 @model Factory.Models.Engineer;
 
 <h1>Engineer Name: @Html.DisplayFor(model => model.Name)</h1>
+<h4>Contact Number: @Html.DisplayFor(model => model.ContactNumber)</h4>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -22,4 +23,5 @@
   </li>
 }
 <p>@Html.ActionLink("Assign new Machine", "AssignMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Edit Engineer Details", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
