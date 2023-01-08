@@ -8,16 +8,22 @@
 
 <h4>Update Machine: @Html.DisplayFor(model => model.Name)</h4>
 <hr />
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;"
+  })</p>
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.MachineId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
-  @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+  <div class="form-group">
+    @Html.HiddenFor(model => model.MachineId)
 
-  <input type="submit" value="Save" />
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name, new { @class="form-control" })
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description, new { @class="form-control mb-3" })
+    <input type="submit" value="Save" class="btn-primary form-control" />
+  </div>
+
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>

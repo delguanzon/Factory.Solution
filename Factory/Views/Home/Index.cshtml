@@ -11,6 +11,7 @@
   <div class="w-50">
     <h2>Engineers</h2>
     <ul>
+
       @foreach (Engineer engineer in Model.Engineers)
       {
         <li>
@@ -18,7 +19,15 @@
         </li>
       }
     </ul>
-    @Html.ActionLink("See all Engineers", "Index", "Engineers")
+    @if (Model.Engineers.Count == 0)
+    {
+      @Html.ActionLink("No Engineers Available. Click to Add", "Create", "Engineers")
+    }
+    else
+    {
+      @Html.ActionLink("See all Engineers", "Index", "Engineers")
+    }
+
   </div>
   <div class="w-50">
     <h2>Machines</h2>
@@ -29,7 +38,14 @@
           @Html.ActionLink(machine.Name, "Details", "Machines", new { id = machine.MachineId }, null)
         </li>
       }
-    </ul>
-    @Html.ActionLink("See all Machines", "Index", "Machines")
+      @if (Model.Machines.Count == 0)
+      {
+        @Html.ActionLink("No Machines Available. Click to Add", "Create", "Machines")
+      }
+      else
+      {
+        @Html.ActionLink("See all Machines", "Index", "Machines")
+      }
+    </ul>    
   </div>
 </div>
