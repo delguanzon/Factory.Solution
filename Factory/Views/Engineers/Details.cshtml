@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Engineer;
+
+<h1>Engineer Name: @Html.DisplayNameFor(model => model.Name)</h1>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h3>No Machines have been assigned to this Engineer</h3>
+} 
+@foreach (EngineerMachine join in Model.JoinEntities)
+{
+  <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new {  id = join.Machine.MachineId })</li>
+}
+
+<ul>
+@foreach (SelectListItem item in (List<SelectListItem>)ViewBag.MachineId)
+{
+ <li> @Html.Display(item.Text) |  @Html.CheckBox(item.Value, false);</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Add new item", "Create")</p>

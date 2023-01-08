@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProjectName.Models
+namespace Factory.Models
 {   
     // This class is a "database context" class we will use to allow Entity Framework to communicate with our MySQL database.
     // The "ProjectNameContext" class represents a session with our MySQL database allowing us to query for data.
@@ -23,6 +23,6 @@ namespace ProjectName.Models
         //Database tables go here
         public DbSet<Factory.Models.Engineer> Engineers { get; set; }
         public DbSet<Factory.Models.Machine> Machines { get; set; }
-        public DbSet<Factory.Models.Assignment> Assignments { get; set; }
+        public DbSet<Factory.Models.EngineerMachine> Assignments { get; set; }
     }
 }
