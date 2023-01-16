@@ -8,7 +8,7 @@
 
 * .Net 6 SDK
 * C#
-* EF Core
+* EF Core 6
 * EF Core Migrations
 * ASP.Net MVC
 * Razor
@@ -96,5 +96,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 12/23/2022 Yodel Guanzon
+Copyright (c) 01/06/2023 Yodel Guanzon
 
