@@ -3,6 +3,7 @@ using System;
 using Factory.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProjectName.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    partial class FactoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230117044759_AddIncidentDbContext")]
+    partial class AddIncidentDbContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,8 +31,8 @@ namespace ProjectName.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("LicenseExpiry")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateOnly>("LicenseExpiry")
+                        .HasColumnType("date");
 
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
@@ -84,9 +86,6 @@ namespace ProjectName.Migrations
 
                     b.Property<int>("EngineerId")
                         .HasColumnType("int");
-
-                    b.Property<string>("IncidentNumber")
-                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsResolved")
                         .HasColumnType("tinyint(1)");
@@ -142,8 +141,8 @@ namespace ProjectName.Migrations
                     b.Property<bool>("IsOperational")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<DateTime>("LastServiced")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateOnly>("LastServiced")
+                        .HasColumnType("date");
 
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
@@ -152,8 +151,8 @@ namespace ProjectName.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("NextService")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateOnly>("NextService")
+                        .HasColumnType("date");
 
                     b.Property<bool>("UnderRepair")
                         .HasColumnType("tinyint(1)");

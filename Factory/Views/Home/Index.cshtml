@@ -2,50 +2,89 @@
   Layout = "_Layout";
 }
 
-@using Factory.Models
+@using Factory.Models;
 
 
-<h1>Welcome to the To Do List!</h1>
+<h1>Welcome to the Factory!</h1>
 
-<div class="d-flex">
-  <div class="w-50">
-    <h2>Engineers</h2>
-    <ul>
-
-      @foreach (Engineer engineer in Model.Engineers)
+<div>
+  <div class="row">
+    <div class="w-50 col">
+      <h2>Engineers</h2>
+      <ul>
+        @foreach (Engineer engineer in Model.Engineers)
+        {
+          <li>
+            @Html.ActionLink(engineer.Name, "Details", "Engineers", new { id = engineer.EngineerId }, null)
+          </li>
+        }
+      </ul>
+      @if (Model.Engineers.Count == 0)
       {
-        <li>
-          @Html.ActionLink(engineer.Name, "Details", "Engineers", new { id = engineer.EngineerId }, null)
-        </li>
-      }
-    </ul>
-    @if (Model.Engineers.Count == 0)
-    {
-      @Html.ActionLink("No Engineers Available. Click to Add", "Create", "Engineers")
-    }
-    else
-    {
-      @Html.ActionLink("See all Engineers", "Index", "Engineers")
-    }
-
-  </div>
-  <div class="w-50">
-    <h2>Machines</h2>
-    <ul>
-      @foreach (Machine machine in Model.Machines)
-      {
-        <li>
-          @Html.ActionLink(machine.Name, "Details", "Machines", new { id = machine.MachineId }, null)
-        </li>
-      }
-      @if (Model.Machines.Count == 0)
-      {
-        @Html.ActionLink("No Machines Available. Click to Add", "Create", "Machines")
+        @Html.ActionLink("No Engineers Available. Click to Add", "Create", "Engineers")
       }
       else
       {
-        @Html.ActionLink("See all Machines", "Index", "Machines")
+        @Html.ActionLink("See all Engineers", "Index", "Engineers")
       }
-    </ul>    
+
+    </div>
+    <div class="w-50 col">
+      <h2>Machines</h2>
+      <ul>
+        @foreach (Machine machine in Model.Machines)
+        {
+          <li>
+            @Html.ActionLink(machine.Name, "Details", "Machines", new { id = machine.MachineId }, null)
+          </li>
+        }
+        @if (Model.Machines.Count == 0)
+        {
+          @Html.ActionLink("No Machines Available. Click to Add", "Create", "Machines")
+        }
+        else
+        {
+          @Html.ActionLink("See all Machines", "Index", "Machines")
+        }
+      </ul>    
+    </div>
   </div>
+  <div class="row">
+    <div class="w-50 col">
+      <h2>Incidents</h2>
+      <ul>
+        @foreach (Incident incident in Model.Incidents)
+        {
+          <li>
+            @Html.ActionLink(incident.IncidentNumber, "Details", "Machines", new { id = incident.IncidentId }, null)
+          </li>
+        }
+        @if (Model.Machines.Count == 0)
+        {
+          @Html.ActionLink("No Active Incidents. Click to create a new incident", "Create", "Incidents")
+        }
+        <p>@Html.ActionLink("See all Incidents", "Index", "Incidents")</p>    
+      </ul>    
+    </div>
+  
+    <div class="w-50 col">
+      <h2>Locations</h2>
+      <ul>
+        @foreach (Location location in Model.Locations)
+        {
+          <li>
+            @Html.ActionLink(location.Name, "Details", "Machines", new { id = location.LocationId }, null)
+          </li>
+        }
+        @if (Model.Locations.Count == 0)
+        {
+          @Html.ActionLink("No Available Locations. Click to add", "Create", "Locations")
+        }
+        else
+        {
+          @Html.ActionLink("See all Incidents", "Index", "Incidents")
+        }
+      </ul>    
+    </div>  
+  </div>  
 </div>

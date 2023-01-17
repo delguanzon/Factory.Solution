@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Factory.Models;
 
-namespace Factory.Models
+namespace Factory.ViewModels
 {
   public class ListAllViewModel
   {

@@ -5,6 +5,7 @@ namespace Factory.Models;
 public class Incident
 {
   public int IncidentId { get; set; }
+  public string IncidentNumber { get; set; }
   public string Description { get; set; }
   public bool IsResolved { get; set; }
   public DateTime StartDate { get; set; }
