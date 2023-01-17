@@ -34,7 +34,7 @@ You've been contracted by the factory of the famous Dr. Sillystringz to build an
 ### Further Exploration
 
 - [x] Add all CRUD methods to both classes.
-- [ ] Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
+- [x] Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired.
 - [ ] Add properties to specify if an engineer is idle, or actively working on repairs.
 - [ ] Add inspection dates to the machines, or dates of license renewal to the engineers.
 - [ ] Add a table for incidents, showing which engineer repaired which machine.

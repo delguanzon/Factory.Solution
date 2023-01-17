@@ -13,6 +13,8 @@ namespace Factory.Models
 
     [Required(ErrorMessage = "The Machine's Description can't be empty!")]
     public string Description { get; set; }
+    public bool IsOperational { get; set; }
+    public bool UnderRepair { get; set; }
     public List<EngineerMachine> JoinEntities { get; set; }
 
   }
