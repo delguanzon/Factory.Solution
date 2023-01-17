@@ -18,6 +18,7 @@ namespace Factory.Models
     public int LocationId { get; set; }
     public Location Location { get; set; }
     public List<EngineerMachine> JoinEntities { get; set; }
+    public List<Incident> Incidents { get; set; }
 
   }
 }
