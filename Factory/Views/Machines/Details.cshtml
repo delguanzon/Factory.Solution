@@ -5,8 +5,10 @@
 @using Factory.Models;
 @model Factory.Models.Machine;
 
-<h2>Machine: @Html.DisplayFor(model => model.Name)</h2>
-<h4>Details: @Html.DisplayFor(model => model.Description)</h4>
+<h3>Machine: @Html.DisplayFor(model => model.Name)</h3>
+<h4>Details:</h4>
+<p>@Html.DisplayFor(model => model.Description)</p>
+
 <hr />
 @if (@Model.JoinEntities.Count == 0)
 {
