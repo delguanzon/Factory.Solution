@@ -101,6 +101,10 @@ namespace Factory.Controllers
         public ActionResult AssignMachine(int id)
         {
             Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+            //List<Machine> allMachines = _db.Machines.ToList();
+            ViewBag.Machines = new List<Machine>();
+            ViewBag.Machines = _db.Machines.ToList();
+            
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
             return View(thisEngineer);
         }

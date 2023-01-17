@@ -12,10 +12,17 @@
 {
     @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.Label("Select Machine")
-    @Html.DropDownList("MachineId")
-
-    <input type="submit" value="Save" />
+    if(ViewBag.Machines.Count != 0)
+    {
+      
+      @Html.DropDownList("MachineId", "- - - -")
+      <input type="submit" value="Save" />
+    }
+    else
+    {
+      @Html.ActionLink("No Machines Available. Click to Add", "Create", "Machines")
+    }
+    
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Engineer List", "Index")</p>
