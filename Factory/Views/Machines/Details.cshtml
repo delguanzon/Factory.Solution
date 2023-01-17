@@ -8,6 +8,7 @@
 <h3>Machine: @Html.DisplayFor(model => model.Name)</h3>
 <h4>Details:</h4>
 <p>@Html.DisplayFor(model => model.Description)</p>
+<strong>Location:</strong> @Html.DisplayFor(model => model.Location.Name)
 
 <hr />
 @if (@Model.JoinEntities.Count == 0)

@@ -61,10 +61,13 @@
         }
         @if (Model.Machines.Count == 0)
         {
-          @Html.ActionLink("No Active Incidents. Click to create a new incident", "Create", "Incidents")
+          @Html.ActionLink("No Active Incidents. Click to start a repair incident", "Create", "Incidents")
         }
-        <p>@Html.ActionLink("See all Incidents", "Index", "Incidents")</p>    
-      </ul>    
+        else
+        {
+          <p>@Html.ActionLink("See all Incidents", "Index", "Incidents")</p>    
+        }
+      </ul>
     </div>
   
     <div class="w-50 col">
@@ -79,10 +82,6 @@
         @if (Model.Locations.Count == 0)
         {
           @Html.ActionLink("No Available Locations. Click to add", "Create", "Locations")
-        }
-        else
-        {
-          @Html.ActionLink("See all Incidents", "Index", "Incidents")
         }
       </ul>    
     </div>  

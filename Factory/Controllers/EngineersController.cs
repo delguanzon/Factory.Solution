@@ -101,10 +101,9 @@ namespace Factory.Controllers
         public ActionResult AssignMachine(int id)
         {
             Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-            //List<Machine> allMachines = _db.Machines.ToList();
+            List<Machine> allMachines = _db.Machines.ToList();
             ViewBag.Machines = new List<Machine>();
-            ViewBag.Machines = _db.Machines.ToList();
-            
+            ViewBag.Machines = _db.Machines.OrderBy(machine => machine.Name).ToList();            
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
             return View(thisEngineer);
         }
@@ -115,10 +114,21 @@ namespace Factory.Controllers
             #nullable enable
             EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
             #nullable disable
+            Machine machine = _db.Machines.FirstOrDefault(machine => machine.MachineId == machineId);
             if (joinEntity == null && machineId != 0)
             {
                 _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineId, EngineerId = engineer.EngineerId });
                 _db.SaveChanges();
+                // if (engineer.LocationId == machine.LocationId )
+                // {
+                //     _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineId, EngineerId = engineer.EngineerId });
+                //     _db.SaveChanges();
+                // }
+                // else 
+                // {
+                    
+                //     return View(engineer);
+                // }                
             }
             return RedirectToAction("Details", new { id = engineer.EngineerId });
         }
