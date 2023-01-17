@@ -3,6 +3,7 @@ using System;
 using Factory.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProjectName.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    partial class FactoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230117060604_RevertFromDateTimetoDateOnly")]
+    partial class RevertFromDateTimetoDateOnly
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace ProjectName.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("LicenseExpiry")
+                    b.Property<DateOnly>("LicenseExpiry")
                         .HasColumnType("date");
 
                     b.Property<int>("LocationId")
@@ -153,7 +155,7 @@ namespace ProjectName.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("NextService")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("UnderRepair")
                         .HasColumnType("tinyint(1)");

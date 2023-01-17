@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Factory.Models
 {
@@ -19,6 +20,7 @@ namespace Factory.Models
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     [Display(Name = "License Expiry Date")]
+    [Column(TypeName="date")]
     public DateTime LicenseExpiry { get; set; }
     public bool isIdle { get; set; }
     public int LocationId { get; set; }

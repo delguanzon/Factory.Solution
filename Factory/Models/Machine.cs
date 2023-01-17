@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Factory.Models
 {
@@ -14,7 +15,11 @@ namespace Factory.Models
 
     [Required(ErrorMessage = "The Machine's Description can't be empty!")]
     public string Description { get; set; }
+
+    
     public DateTime LastServiced { get; set; }
+
+    [Column(TypeName="date")]
     public DateTime NextService { get; set; }
     public bool IsOperational { get; set; }
     public bool UnderRepair { get; set; }
