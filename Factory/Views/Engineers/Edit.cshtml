@@ -20,7 +20,9 @@
   @Html.EditorFor(model => model.Name)
   @Html.LabelFor(model => model.ContactNumber)
   @Html.EditorFor(model => model.ContactNumber)
-
+  @Html.LabelFor(model => model.LicenseExpiry)
+  @Html.EditorFor(model => model.LicenseExpiry)
+  @Html.DropDownList("LocationId");
   <input type="submit" value="Save" />
 }
 

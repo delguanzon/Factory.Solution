@@ -18,7 +18,7 @@ namespace Factory.Models
     public string ContactNumber { get; set; }
 
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+    //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [Display(Name = "License Expiry Date")]
     [Column(TypeName="date")]
     public DateTime LicenseExpiry { get; set; }

@@ -61,9 +61,9 @@ namespace Factory.Controllers
         public ActionResult Edit(int id)
         {
             Engineer thisEngineer = _db.Engineers
-                                .Include(engineer => engineer.JoinEntities)
-                                .ThenInclude(join => join.Machine)
+                                .Include(engineer => engineer.Location)                             
                                 .FirstOrDefault(Engineer => Engineer.EngineerId == id);
+            ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name", thisEngineer.Location.LocationId);
             return View(thisEngineer);
         }
 

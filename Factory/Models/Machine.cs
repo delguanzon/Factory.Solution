@@ -14,11 +14,11 @@ namespace Factory.Models
     public string Name { get; set; }
 
     [Required(ErrorMessage = "The Machine's Description can't be empty!")]
-    public string Description { get; set; }
-
-    
+    public string Description { get; set; }    
     public DateTime LastServiced { get; set; }
 
+    [Required]
+    [DataType(DataType.Date)]
     [Column(TypeName="date")]
     public DateTime NextService { get; set; }
     public bool IsOperational { get; set; }
