@@ -13,6 +13,9 @@ namespace Factory.Models
 
     [Required(ErrorMessage = "The Engineers's Contact Number can't be empty!")]
     public string ContactNumber { get; set; }
+
+    public int LocationId { get; set; }
+    public Location Location { get; set; }
     public List<EngineerMachine> JoinEntities { get; set; }
 
   }

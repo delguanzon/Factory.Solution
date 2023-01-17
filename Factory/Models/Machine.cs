@@ -15,6 +15,8 @@ namespace Factory.Models
     public string Description { get; set; }
     public bool IsOperational { get; set; }
     public bool UnderRepair { get; set; }
+    public int LocationId { get; set; }
+    public Location Location { get; set; }
     public List<EngineerMachine> JoinEntities { get; set; }
 
   }
