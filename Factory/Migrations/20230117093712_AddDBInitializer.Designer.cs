@@ -3,6 +3,7 @@ using System;
 using Factory.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProjectName.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    partial class FactoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230117093712_AddDBInitializer")]
+    partial class AddDBInitializer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,18 +142,6 @@ namespace ProjectName.Migrations
                             LocationId = 2,
                             Address = "456 Main St",
                             Name = "Portland"
-                        },
-                        new
-                        {
-                            LocationId = 3,
-                            Address = "789 Main St",
-                            Name = "Tacoma"
-                        },
-                        new
-                        {
-                            LocationId = 4,
-                            Address = "1011 Main St",
-                            Name = "Tilamook"
                         });
                 });
 

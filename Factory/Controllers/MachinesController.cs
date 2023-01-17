@@ -29,7 +29,7 @@ namespace Factory.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.LocationId = new SelectList(_db.Locations, "Location Id", "Name", "Select Location");
+            ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
             return View();
         }
         

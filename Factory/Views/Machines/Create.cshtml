@@ -6,16 +6,42 @@
 <h3> Add a New Machine</h3>
 <hr />
 <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.NextService, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 @using (Html.BeginForm()) 
 {
+    
     <div class="form-group">
-      @Html.LabelFor(model => model.Name)
-      @Html.TextBoxFor(model => model.Name, new { @class="form-control" }) <br/>
-      @Html.LabelFor(model => model.Description) 
-      @Html.TextBoxFor(model => model.Description, new { @class="form-control mb-3" })
-      <input type="submit" value="Add new Machine" class="btn-primary form-control" />
+    <div class="mb-3 row">
+      @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 col-form-label" })
+      <div class="col-sm-6">
+        @Html.EditorFor(model => model.Name, new {htmlAttributes = new { @class = "form-control" }})
+      </div>  
     </div>
+    <div class="mb-3 row">
+      @Html.LabelFor(model => model.Description, new { @class = "col-sm-2 col-form-label" })
+      <div class="col-sm-6">@Html.EditorFor(model => model.Description, new {htmlAttributes = new { @class = "form-control" }})</div>
+    </div>    
+    <div class="mb-3 row">
+      @Html.LabelFor(model => model.Location, new { @class = "col-sm-2 col-form-label" })
+      <div class="col-sm-6">@Html.DropDownList("LocationId", (IEnumerable<SelectListItem>)ViewBag.LocationId, "Please Select", new { @class = "form-control"})</div>    
+    </div>
+    <div class="mb-3 row">
+      @Html.LabelFor(model => model.LastServiced, new { @class = "col-sm-2 col-form-label" })
+      <div class="col-sm-6">@Html.EditorFor(model => model.LastServiced, new {htmlAttributes = new { @class = "form-control" }})</div>
+    </div>   
+    <div class="mb-3 row">
+      @Html.LabelFor(model => model.NextService, new { @class = "col-sm-2 col-form-label" })
+      <div class="col-sm-6">@Html.EditorFor(model => model.NextService, new {htmlAttributes = new { @class = "form-control" }})</div>
+    </div>   
+    
+    <div class="mb-3 row">  
+      <div class="col"></div>
+      <div class="col">@Html.EditorFor(model => model.IsOperational, new {htmlAttributes = new { @class = "form-check-input" }})
+      @Html.LabelFor(model => model.IsOperational, new { @class = "form-check-label col-sm-" })
+      </div>      
+    </div>
+    <input type="submit" value="Add new Machine" class="btn btn-primary"/>
+  </div>
     
 }
 

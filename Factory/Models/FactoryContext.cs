@@ -20,6 +20,12 @@ namespace Factory.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            new FactoryDBInitializer(modelBuilder).Seed();
+        }
+
         //Database tables go here
         public DbSet<Factory.Models.Engineer> Engineers { get; set; }
         public DbSet<Factory.Models.Machine> Machines { get; set; }

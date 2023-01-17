@@ -12,5 +12,6 @@ public class Location
   public string Address { get; set; }
   public List<Machine> Machines { get; set; }
   public List<Engineer> Engineers { get; set; }
+  public List<Incident> Incidents { get; set; }
 
 }
