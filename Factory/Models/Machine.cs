@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,6 +14,8 @@ namespace Factory.Models
 
     [Required(ErrorMessage = "The Machine's Description can't be empty!")]
     public string Description { get; set; }
+    public DateOnly LastServiced { get; set; }
+    public DateOnly NextService { get; set; }
     public bool IsOperational { get; set; }
     public bool UnderRepair { get; set; }
     public int LocationId { get; set; }

@@ -25,5 +25,6 @@ namespace Factory.Models
         public DbSet<Factory.Models.Machine> Machines { get; set; }
         public DbSet<Factory.Models.EngineerMachine> EngineerMachines { get; set; }
         public DbSet<Factory.Models.Location> Locations { get; set; }
+        public DbSet<Factory.Models.Location> Incidents { get; set; }
     }
 }
