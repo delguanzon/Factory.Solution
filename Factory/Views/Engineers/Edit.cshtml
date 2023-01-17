@@ -14,16 +14,28 @@
 <hr />
 @using (Html.BeginForm())
 {
+  <div class="form-group">
   @Html.HiddenFor(model => model.EngineerId)
-
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
-  @Html.LabelFor(model => model.ContactNumber)
-  @Html.EditorFor(model => model.ContactNumber)
-  @Html.LabelFor(model => model.LicenseExpiry)
-  @Html.EditorFor(model => model.LicenseExpiry)
-  @Html.DropDownList("LocationId");
-  <input type="submit" value="Save" />
+  <div class="mb-3 row">
+    @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 col-form-label" })
+    <div class="col-sm-6">
+      @Html.EditorFor(model => model.Name, new {htmlAttributes = new { @class = "form-control" }})
+    </div>  
+  </div>
+  <div class="mb-3 row">
+    @Html.LabelFor(model => model.ContactNumber, new { @class = "col-sm-2 col-form-label" })
+    <div class="col-sm-6">@Html.EditorFor(model => model.ContactNumber, new {htmlAttributes = new { @class = "form-control" }})</div>
+  </div>
+  <div class="mb-3 row">
+    @Html.LabelFor(model => model.LicenseExpiry, new { @class = "col-sm-2 col-form-label" })
+    <div class="col-sm-6">@Html.EditorFor(model => model.LicenseExpiry, new {htmlAttributes = new { @class = "form-control" }})</div>
+  </div>
+  <div class="mb-3 row">
+    @Html.LabelFor(model => model.Location, new { @class = "col-sm-2 col-form-label" })
+    <div class="col-sm-6">@Html.DropDownList("LocationId", (IEnumerable<SelectListItem>)ViewBag.LocationId, "Please Select", new { @class = "form-control"})</div>    
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary"/>
+</div>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>

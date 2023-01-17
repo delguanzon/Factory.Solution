@@ -5,8 +5,14 @@
 @using Factory.Models;
 @model Factory.Models.Engineer;
 
-<h1>Engineer Name: @Html.DisplayFor(model => model.Name)</h1>
-<h4>Contact Number: @Html.DisplayFor(model => model.ContactNumber)</h4>
+<h3>Engineer Name: @Html.DisplayFor(model => model.Name)</h3>
+<div class="details">
+  <strong>Contact Number:</strong> @Html.DisplayFor(model => model.ContactNumber) <br>
+  <strong>Location:</strong> @Html.DisplayFor(model => model.Location.Name)
+</div>
+
+
+<hr />
 
 @if (@Model.JoinEntities.Count == 0)
 {
