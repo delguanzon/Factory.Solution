@@ -45,9 +45,11 @@ You've been contracted by the factory of the famous Dr. Sillystringz to build an
 
 
 ### Install Database Tools
+
 * Download and install MySQL Community Server and MySQL Workbench using the following link: (https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-web-community-8.0.19.0.msi)
 
 ### Creating appsettings.json for Database Connection Setup
+
 * Using a text editor, create a file. Paste the following code, replacing the USERNAME, PASSWORD with your own information. Make sure to also remove the enclosing braces.
 
 ```
@@ -82,6 +84,20 @@ You've been contracted by the factory of the famous Dr. Sillystringz to build an
 * None
 
 Found a bug? Email me at <yodelguanzon@gmail.com>
+
+## [TODO] Additional Tasks/User Stories
+
+* [ ] Add Incident Model-View-Controller for repairs
+* [ ] Repair incidents can only be created if there's an idle Engineer and a malfunctioning machine in the same location
+* [ ] Repair incident view will display idle engineer and malfunctioning machines at the same location
+* [ ] Engineer can only be assigned to a Machine in the same location and vice versa
+* [ ] Engineer detail should display if an engineer is idle or working on a repair
+* [ ] Machine detail view should display if the machine is being repaired if it's unoperational
+* [ ] Machine Last Service date should automatically update after a repair have been completed besides being manually updated after an engineer inspection using the edit function
+* [ ] CRUD for Locations Table. I want to learn how to seed data so right now Locations is a seeded data using FactoryDBInitializer.
+* [ ] Homepage should show Engineers with Expiring/Expired Licenses
+* [ ] Homepage should show Machines that are in need of repairs
+* [ ] Homepage should only show active/on-going Repair Incidents
 
 ## License
 
