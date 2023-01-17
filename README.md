@@ -38,7 +38,7 @@ You've been contracted by the factory of the famous Dr. Sillystringz to build an
 - [ ] Add properties to specify if an engineer is idle, or actively working on repairs.
 - [ ] Add inspection dates to the machines, or dates of license renewal to the engineers.
 - [ ] Add a table for incidents, showing which engineer repaired which machine.
-- [ ] Add a table for locations, and specify which engineers or machines are located at which factory.
+- [x] Add a table for locations, and specify which engineers or machines are located at which factory.
 - [ ] Add styling to give life to the project.
 
 ## Setup/Installation Requirements
